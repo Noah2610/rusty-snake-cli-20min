@@ -68,10 +68,10 @@ fn main() {
 
         // MOVE SNAKE
         match move_dir {
-            MoveDir::Up => snake.1 = snake.1 - 1 % HEIGHT,
-            MoveDir::Down => snake.1 = snake.1 + 1 % HEIGHT,
-            MoveDir::Left => snake.0 = snake.0 - 1 % WIDTH,
-            MoveDir::Right => snake.0 = snake.0 + 1 % WIDTH,
+            MoveDir::Up => snake.1 = (snake.1 - 1) % HEIGHT,
+            MoveDir::Down => snake.1 = (snake.1 + 1) % HEIGHT,
+            MoveDir::Left => snake.0 = (snake.0 - 1) % WIDTH,
+            MoveDir::Right => snake.0 = (snake.0 + 1) % WIDTH,
         }
 
         // GAME OVER
