@@ -8,8 +8,8 @@ use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;
 
-const WIDTH: i32 = 50;
-const HEIGHT: i32 = 20;
+const WIDTH: i32 = 20;
+const HEIGHT: i32 = 10;
 
 enum MoveDir {
     Up,
@@ -68,10 +68,10 @@ fn main() {
 
         // MOVE SNAKE
         match move_dir {
-            MoveDir::Up => snake.1 = (snake.1 - 1) % HEIGHT,
-            MoveDir::Down => snake.1 = (snake.1 + 1) % HEIGHT,
-            MoveDir::Left => snake.0 = (snake.0 - 1) % WIDTH,
-            MoveDir::Right => snake.0 = (snake.0 + 1) % WIDTH,
+            MoveDir::Up => snake.1 = (snake.1 - 1).rem_euclid(HEIGHT),
+            MoveDir::Down => snake.1 = (snake.1 + 1).rem_euclid(HEIGHT),
+            MoveDir::Left => snake.0 = (snake.0 - 1).rem_euclid(WIDTH),
+            MoveDir::Right => snake.0 = (snake.0 + 1).rem_euclid(WIDTH),
         }
 
         // GAME OVER
